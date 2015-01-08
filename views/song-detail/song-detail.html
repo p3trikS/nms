@@ -1,0 +1,72 @@
+<div id="song-detail" data-role="page" jqm-bootstrap>
+    <div class="header" data-role="header">
+        <a class="link header-back-button" href="javascript:return false;" ng-tap-back data-role="none">Back</a> 
+        <h3>{{song.title|| 'Preview'}}</h3>
+        <span class="header-plus-button link" ng-tap="addClicked()">+</span>
+    </div>
+    <div data-role="content">
+        <div class="banner add-margin" >
+            <img src="{{data.bannerImageSrc}}" alt="" image-hideable ng-tap="data.bannerClicked()"/>
+        </div> 
+        <section id="main">
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <img id="thumbnail" src="{{song.img}}" alt="{{song.title}}"/>
+                </div>
+                <div class="ui-block-b">
+                    <img src="img/big-play-button.png" ng-show='state == "STOPPED"' ng-tap="playClicked()"/>
+                    <img src="img/big-play-loading.png" ng-show='state == "LOADING"'/>
+                    <img src="img/big-stop-button.png" ng-show='state == "PLAYING"' ng-tap="playClicked()"/>
+                    <span>
+                        Preview Song
+                    </span>
+                    <span class="time-played" >
+                        <span ng-show='state == "PLAYING"'>Time Played:<wbr/> {{timePlayed| number:1}} seconds</span>
+                    </span>
+                    <button id="add-button" ng-tap="addClicked()" ng-show="song.title && !song.inPlaylist">Add To Playlist</button>
+                    <button id="remove-button" ng-tap="removeClicked()" ng-show="song.title && song.inPlaylist">Remove From Playlist</button>
+                </div>
+            </div>
+        </section>
+        <section id="details">
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <label>Title:</label>
+                </div>
+                <div class="ui-block-b">
+                    <label>{{song.title}}</label>
+                </div>
+                <div class="ui-block-a">
+                    <label>Artist:</label>
+                </div>
+                <div class="ui-block-b">
+                    <label>{{song.artist}}</label>
+                </div>
+                <div class="ui-block-a">
+                    <label>Label:</label>
+                </div>
+                <div class="ui-block-b">
+                    <label>{{song.label}}</label>
+                </div>
+                <div class="ui-block-a">
+                    <label>Uploaded On:</label>
+                </div>
+                <div class="ui-block-b">
+                    <label >{{song.uploaded}}</label>
+                </div>
+                <div class="ui-block-a">
+                    <label>Length:</label>
+                </div>
+                <div class="ui-block-b">
+                    <label>{{song.length}}</label>
+                </div>
+            </div>
+        </section>
+        <section id="volume" ng-show="data.android && volumeLoaded">
+            <form action="javascript:return false;">
+                <label for="slider-volume" class="ui-hidden-accessible">Slider:</label>
+                <input type="range" name="slider" ng-model="volume" slide-stop="volumeChanged()" id="slider-volume" value="0" min="0" max="100" data-highlight="true" data-role="none" jqm-slider/>
+            </form>
+        </section>        
+    </div>
+</div>

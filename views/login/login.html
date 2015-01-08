@@ -1,0 +1,42 @@
+<div id="login" data-role="page" jqm-bootstrap>
+    <div data-role="header" class="header-logo">
+        <img src="img/nms.gif" alt="New Music Server"/>
+    </div>
+    <div data-role="content">
+        <div class="banner" >
+            <img src="{{data.bannerImageSrc}}" alt="" image-hideable ng-tap="data.bannerClicked()"/>
+        </div>
+        <form name="myForm" action="javascript:return false;" novalidate>
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <label>Email ID:</label>
+                </div>
+                <div class="ui-block-b">
+                    <input id="email" name="email" type="email" ng-model="email" required/>
+                    <span class="invalid" ng-show="submitTried && myForm.email.$error.required">
+                        Email is required.
+                    </span>
+                    <span class="invalid" ng-show="submitTried && myForm.email.$error.email">
+                        Invalid email address.
+                    </span>
+                </div>
+                <div class="ui-block-a">
+                    <label>Password:</label>
+                </div>
+                <div class="ui-block-b">
+                    <input id="password" name="password" type="password" ng-model="password" required/>
+                    <span class="invalid" ng-show="submitTried && myForm.password.$invalid">
+                        Password is required.
+                    </span>
+                </div>
+                <hr/>
+                <label class="check-label">
+                    <input id="remember-login" type="checkbox" ng-model="rememberLogin"/>
+                    Remember login credentials
+                </label>
+            </div>
+        </form>
+        <hr/>
+        <button id="login-link" class="link" ng-tap="loginClicked()">Login</button>
+    </div>
+</div>

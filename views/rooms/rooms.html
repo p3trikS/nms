@@ -1,0 +1,20 @@
+
+
+<div id="rooms" data-role="page" jqm-bootstrap>
+    <div class="header" data-role="header">
+        <a class="link header-back-button" href="javascript:return false;" ng-tap-back data-role="none">Home</a> 
+        <h3>Format Rooms</h3>
+    </div>
+    <div data-role="content" >
+        <img class="content-top-logo" src="img/nms.gif"/>
+        <div class="banner add-margin" >
+            <img src="{{data.bannerImageSrc}}" alt="" image-hideable ng-tap="data.bannerClicked()"/>
+        </div>
+        <ul data-role="listview" class='song-list'>
+            <li class='item' ng-repeat="item in items" jqm-dynamic-list>
+                <a href="javascript:return false;" ng-tap-link="/room-detail/{{item.id}}/{{item.name|escapeTwice}}">{{item.name}}</a>
+            </li>
+            <li ng-show="!items || items.length == 0" class="empty-li">...Loading...</li>
+        </ul>
+    </div>
+</div>

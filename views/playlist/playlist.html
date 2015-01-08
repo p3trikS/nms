@@ -1,0 +1,44 @@
+<div id="playlist" data-role="page" jqm-bootstrap>
+    <div class="header" data-role="header">
+        <a class="link header-back-button" href="javascript:return false"  ng-tap-back data-role="none">Home</a> 
+        <h3 ng-style="{ bottom: currentSong.name ? '' : '-10px'}">{{currentSong.name|| 'My Playlist'}}</h3>
+        <span class="header-info">{{currentSong.artist|| '&nbsp;'}}</span>
+    </div>
+    <div data-role="content" >
+        <div class="banner add-margin" >
+            <img src="{{data.bannerImageSrc}}" alt="" image-hideable ng-tap="data.bannerClicked()"/>
+        </div>     
+        <nav>
+            <div class="ui-grid-c">
+                <div class="ui-block-a play-stop">
+                    <img src="img/play-button.png" ng-tap="play(items[0]);" ng-hide="currentSong.name"/>
+                    <img src="img/stop-button.png" ng-tap="stop();" ng-show="currentSong.name"/>
+                </div>
+                <div class="ui-block-b start-over"><img src="img/start-over-button.png" ng-tap="startOver();"/></div>
+                <div class="ui-block-c prev"><img src="img/prev-button.png" ng-tap="prev();"/></div>
+                <div class="ui-block-d next"><img src="img/next-button.png" ng-tap="next();"/></div>
+            </div>
+        </nav>
+        <img class="content-top-logo" src="img/nms.gif"/>
+        <ul data-role="listview" class='song-list thumb-list'>
+            <li class='item' ng-repeat="item in items" style="left:0px" jqm-dynamic-list slideable-li ng-remove="removeFromList(item)">
+                <a href="javascript:return false;" ng-tap-link="/song-detail/{{item.id}}/true">
+                    <img src='{{item.img}}' ng-tap="itemPlayClicked(item)"/>
+                    <img src='img/play-thumb.png' class="play-overlay" ng-tap="play(item)"/>
+                    <span>{{item.name}}</span>
+                    <small>{{item.artist}}</small>
+                    <hr>
+                </a>
+                <div class="item-slide-right"><span class="slide-menu-item slide-menu-delete">Delete</span></div>
+            </li>
+            <li ng-show="!loaded" class="empty-li">...Loading...<hr/></li>
+            <li ng-show="loaded && items.length == 0" class="empty-song-li"> 
+                <a href='javascript:return false;'>
+                    <img src='img/empty.png'/>
+                    <span>No Record Found</span>
+                    <small></small>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

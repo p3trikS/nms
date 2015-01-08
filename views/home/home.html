@@ -1,0 +1,25 @@
+<div id="home" data-role="page" jqm-bootstrap>
+    <div class="header" data-role="header">
+        <h3>Home</h3>
+    </div>
+    <div data-role="content">
+        <img class="content-top-logo" src="img/nms.gif"/>
+        <div class="banner add-margin" >
+            <img src="{{data.bannerImageSrc}}" alt="" image-hideable ng-tap="data.bannerClicked()"/>
+        </div>        <ul data-role="listview">
+            <li class='item search'>
+                <div>                
+                    <input id="search-input" type='text' data-type='search' ng-model="query">
+                </div>
+                <b ng-tap='search()'>Search Songs</b>
+            </li>
+            <li></li>
+            <li class='item'><a href="javascript:return false;" ng-tap-link="/rooms">Format Rooms</a></li>
+            <li></li>
+            <li class='item'><a href="javascript:return false;" ng-tap-link="/contacts">Contact Us</a></li>
+            <li></li>
+            <li class='item'><a href="javascript:return false;" ng-tap-link="/playlist">My Playlist</a></li>
+        </ul>
+
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+        <meta name="msapplication-tap-highlight" content="no" />
+        <title>New Music Server</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+        <link rel="stylesheet" href="css/app.css">
+    </head>
+    <body>
+        <div ng-view></div>
+        <script src="js/lib/jquery-2.1.1.min.js"></script>
+        <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+        <script src="js/lib/xml2json.min.js"></script>
+        <script src="js/lib/angular/angular/angular.min.js"></script>
+        <script src="js/lib/angular/angular-route/angular-route.js"></script>
+        <script src="js/app.js"></script>
+        <script src="views/login/login.js"></script>
+        <script src="views/home/home.js"></script>
+        <script src="views/rooms/rooms.js"></script>
+        <script src="views/playlist/playlist.js"></script>
+        <script src="views/room-detail/room-detail.js"></script>
+        <script src="views/song-detail/song-detail.js"></script>
+        <script src="views/contacts/contacts.js"></script>
+        <script src="views/search/search.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/directives.js"></script>
+        <script src="js/filters.js"></script>
+
+        <!--    <script>window.android = true;</script>
+                <script type="text/javascript" src="cordova.js"></script>
+                <script type="text/javascript" src="js/plugins.js"></script>-->
+
+        <!--<script>window.testingNMS = true;</script>-->
+
+        <!--<script src="https://murmuring-lowlands-4645.herokuapp.com/target/target-script-min.js#anonymous"></script>-->
+
+        <script>
+            document.addEventListener('deviceready', function () {
+                console.log('deviceready');
+            }, false);
+            document.addEventListener('pageshow', function () {
+                console.log('pageshow');
+            }, false);
+            document.addEventListener('mobileinit', function () {
+                console.log('mobileinit');
+            }, false);
+        </script>
+    </body>
+</html>
